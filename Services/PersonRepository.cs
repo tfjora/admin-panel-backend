@@ -16,7 +16,8 @@ public class PersonRepository : IPersonRepository
 
     public async Task<Person> AddPerson(Person person)
     {
-        _databaseContext.Persons.Add(person);
+        //_databaseContext.Persons.Add(person);
+        _databaseContext.Persons.Attach(person);
         await _databaseContext.SaveChangesAsync();
         return person;
     }
